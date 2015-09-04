@@ -1,0 +1,43 @@
+behave mswin
+
+" These settings I learned from http://vim.wikia.com/wiki/Example_vimrc
+
+"---------------------------------------------------------
+" Must have options
+
+" Highlight searches (use <C-L> to temporarily turn off highlighting; see the
+" mapping of <C-L> below)
+set hlsearch
+
+"---------------------------------------------------------
+" Usability options {{{1
+"
+" These are options that users frequently set in their .vimrc. Some of them
+" change Vim's behaviour in ways which deviate from the true Vi way, but
+" which are considered to add usability. Which, if any, of these options to
+" use is very much a personal preference, but they are harmless.
+
+" Use case insensitive search, except when using capital letters
+set ignorecase
+set smartcase
+
+"allow backspacing over autoindent, line breaks and start of insert action
+set backspace=indent,eol,start
+
+" When opening a new line and no filetype-specific indenting is enabled, keep
+" the same indent as the line you're currently on. Useful for READMEs, etc.
+set autoindent
+
+" Display line numbers
+set number
+
+"---------------------------------------------------------
+" Indentation Options
+set shiftwidth=4
+set tabstop=4
+
+"---------------------------------------------------------
+" My personal mappings
+
+imap ;; <Esc>
+vmap ;; <Esc>
