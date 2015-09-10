@@ -143,7 +143,7 @@ set textwidth=80
 imap jj <Esc>
 vmap jj <Esc>
 
-/let mapleader=","
+let mapleader=","
 
 " map <leader>q and <leader>w to buffer prev/next buffer
 noremap <leader>q :bp<CR>
