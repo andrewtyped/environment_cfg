@@ -202,3 +202,43 @@ if exists("+undofile")
   set undodir+=~/.vim/undo//
   set undofile
 endif
+
+" if windows...
+if has('win32')
+    " start maximized
+    autocmd GUIEnter * simalt ~x
+    " also use .vim instead of vimfiles, make sure to run the following command
+    " once this was copied to /Users/<user>/.vim
+    "  mklink %homepath%/.vimrc %homepath%/.vim/.vimrc
+    let &runtimepath.=',$HOME/.vim'
+endif
+
+" ---------------------- PLUGIN CONFIGURATION ----------------------
+" initiate Vundle
+let &runtimepath.=',$HOME/.vim/bundle/Vundle.vim'
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" start plugin defintion
+Plugin 'scrooloose/nerdtree'
+"Plugin 'vim-scripts/L9'
+""Plugin 'vim-scripts/FuzzyFinder'
+Plugin 'itchyny/lightline.vim'      
+""Plugin 'Lokaltog/vim-easymotion'    
+""Plugin 'tpope/vim-surround'         
+" -- Web Development
+Plugin 'Shutnik/jshint2.vim'        
+""Plugin 'mattn/emmet-vim'            
+""Plugin 'kchmck/vim-coffee-script'   
+Plugin 'groenewege/vim-less'        
+Plugin 'skammer/vim-css-color'      
+Plugin 'hail2u/vim-css3-syntax'     
+""Plugin 'digitaltoad/vim-jade'       
+
+" end plugin definition
+call vundle#end()            " required for vundle
+
+" start NERDTree on start-up and focus active window
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
