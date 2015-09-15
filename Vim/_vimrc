@@ -71,7 +71,10 @@ set fileencoding=utf-8
 
 set guifont=consolas\ 10
 
-
+" make a mark for column 80
+set colorcolumn=80
+" and set the mark color to DarkSlateGray
+highlight ColorColumn ctermbg=lightgray guibg=lightgray
 
 "---------------------------------------------------------
 " Must have options
@@ -161,7 +164,7 @@ vmap <S-Tab> <gv
 " select all mapping
 noremap <leader>a ggVG
 
-"---------------------------------------------------------
+"--------------------------SWAP FILE MANAGEMENT-------------------------------
 " see stackoverflow : http://stackoverflow.com/questions/4331776/change-vim-swap-backup-undo-file-name
 " Save your backups to a less annoying place than the current directory.
 " If you have .vim-backup in the current directory, it'll use that.
@@ -213,28 +216,32 @@ if has('win32')
     let &runtimepath.=',$HOME/.vim'
 endif
 
+"-----------------------END SWAP FILE MANAGEMENT--------------------
+
 " ---------------------- PLUGIN CONFIGURATION ----------------------
 " initiate Vundle
+" If running for the first time, make sure to run :PluginInstall
 let &runtimepath.=',$HOME/.vim/bundle/Vundle.vim'
 call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 " start plugin defintion
+"NERDTree is a visual directory browser
 Plugin 'scrooloose/nerdtree'
-"Plugin 'vim-scripts/L9'
-""Plugin 'vim-scripts/FuzzyFinder'
-Plugin 'itchyny/lightline.vim'      
-""Plugin 'Lokaltog/vim-easymotion'    
-""Plugin 'tpope/vim-surround'         
+
+"lightline provides a lightweight status bar w/ info about current file
+Plugin 'itchyny/lightline.vim'
+
+"vim-surround allows for editing and removing html tags, braces, parens, etc.        
+""Plugin 'tpope/vim-surround'
+         
 " -- Web Development
 Plugin 'Shutnik/jshint2.vim'        
-""Plugin 'mattn/emmet-vim'            
-""Plugin 'kchmck/vim-coffee-script'   
+""Plugin 'mattn/emmet-vim'             
 Plugin 'groenewege/vim-less'        
 Plugin 'skammer/vim-css-color'      
-Plugin 'hail2u/vim-css3-syntax'     
-""Plugin 'digitaltoad/vim-jade'       
+Plugin 'hail2u/vim-css3-syntax'       
 
 " end plugin definition
 call vundle#end()            " required for vundle
@@ -242,3 +249,12 @@ call vundle#end()            " required for vundle
 " start NERDTree on start-up and focus active window
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
+
+" If NERDTree is the last buffer, close
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" run JSHint when a file with .js extension is saved
+" this requires the jsHint2 plugin
+autocmd BufWritePost *.js silent :JSHint
+
+"-----------------------END PLUGIN CONFIGURATION------------------------
