@@ -253,6 +253,9 @@ autocmd VimEnter * wincmd p
 " If NERDTree is the last buffer, close
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+"Align NERDTree to the right of the viewport
+let g:NERDTreeWinPos = "right"
+
 " run JSHint when a file with .js extension is saved
 " this requires the jsHint2 plugin
 autocmd BufWritePost *.js silent :JSHint
