@@ -44,6 +44,11 @@ $console.cursorsize = 25
 #Requires admin... not sure if I want to use this
 #Set-ItemProperty -path “HKCU:\Console” -name QuickEdit -value 1
 
+#font
+#requires regedit... just inform what the ideal font is
+#it seems using larger fonts causes issues with setting buffer/window size
+echo "Ideal font is Raster Fonts 8x12"
+
 #buffer
 #
 $buffer = $console.BufferSize
