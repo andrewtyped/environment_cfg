@@ -39,15 +39,15 @@ $console = $host.UI.RawUI
 #buffer
 #
 $buffer = $console.BufferSize
-$buffer.Width = 165
-$buffer.Height = 65
+$buffer.Width = 100
+$buffer.Height = 200
 $console.BufferSize = $buffer
 
 #Window
 #
 $size = $console.WindowSize
-$size.Width = 165
-$size.height = 65
+$size.Width = 100
+$size.height = 40
 $console.WindowSize = $size
 
 #colors
