@@ -219,6 +219,10 @@ endif
 "-----------------------END SWAP FILE MANAGEMENT--------------------
 
 " ---------------------- PLUGIN CONFIGURATION ----------------------
+"Installing Vundle:
+"    Run the following from $HOME (assumes git is installed)
+"    git clone https://github.com/gmarik/Vundle.vim.git .vim/bundle/Vundle.vim
+
 " initiate Vundle
 " If running for the first time, make sure to run :PluginInstall
 let &runtimepath.=',$HOME/.vim/bundle/Vundle.vim'
