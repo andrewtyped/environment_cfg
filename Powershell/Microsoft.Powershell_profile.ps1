@@ -36,6 +36,10 @@ $console = $host.UI.RawUI
 #Powershell UI
 #
 
+#cursor
+#
+$console.cursorsize = 25
+
 #buffer
 #
 $buffer = $console.BufferSize
