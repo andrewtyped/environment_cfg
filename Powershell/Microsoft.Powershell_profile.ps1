@@ -24,6 +24,22 @@ Set-Alias chrome $CHROMEPATH\chrome.exe
 
 #End Chrome
 
+#Chocolatey
+#
+
+if ( -not (Get-Command choco -errorAction SilentlyContinue))
+{
+    Write-Warning "Chocolatey is missing. Run installChocolatey as admin."
+}
+
+Function installChocolatey
+{
+	iex ((new-object net.webclient).DownloadString(`
+	'https://chocolatey.org/install.ps1'))
+}
+
+#End Chocolatey
+
 
 Function editPSProfile
 {
@@ -41,11 +57,11 @@ $console = $host.UI.RawUI
 $console.cursorsize = 25
 
 #quickedit
-#Requires admin... not sure if I want to use this
+# Requires admin... not sure if I want to use this
 #Set-ItemProperty -path “HKCU:\Console” -name QuickEdit -value 1
 
 #font
-#requires regedit... just inform what the ideal font is
+# requires regedit... just inform what the ideal font is
 #it seems using larger fonts causes issues with setting buffer/window size
 echo "Ideal font is Raster Fonts 8x12"
 
