@@ -40,6 +40,10 @@ $console = $host.UI.RawUI
 #
 $console.cursorsize = 25
 
+#quickedit
+#Requires admin... not sure if I want to use this
+#Set-ItemProperty -path “HKCU:\Console” -name QuickEdit -value 1
+
 #buffer
 #
 $buffer = $console.BufferSize
