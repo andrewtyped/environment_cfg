@@ -56,12 +56,18 @@ $buffer.Width = 100
 $buffer.Height = 200
 $console.BufferSize = $buffer
 
-#Window
+#WindowSize
 #
 $size = $console.WindowSize
 $size.Width = 100
 $size.height = 40
 $console.WindowSize = $size
+
+#WindowPosition
+#
+$position = $console.WindowPosition
+$position.X = 75
+$position.Y = 75
 
 #colors
 #
