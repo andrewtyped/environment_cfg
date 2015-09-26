@@ -59,7 +59,9 @@ $console.BackgroundColor = "Gray"
 
 
 #remove curl alias so cURL actually works
-remove-item alias:curl
+if((test-path alias:curl) -eq $true) {
+	remove-item alias:curl
+}
 
 #Bash Command Replacements
 #
