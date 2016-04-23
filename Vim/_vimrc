@@ -51,9 +51,6 @@ filetype indent on
 "   .md files are markdown files
 autocmd BufNewFile,BufRead *.md setlocal ft=markdown
 
-" turn off syntax highlights - I don't like them
-syntax off
-
 " hide unnecessary gui in gVim
 if has("gui_running")
     set guioptions-=m  " remove menu bar
@@ -219,10 +216,6 @@ endif
 "-----------------------END SWAP FILE MANAGEMENT--------------------
 
 " ---------------------- PLUGIN CONFIGURATION ----------------------
-"Installing Vundle:
-"    Run the following from $HOME (assumes git is installed)
-"    git clone https://github.com/gmarik/Vundle.vim.git .vim/bundle/Vundle.vim
-
 " initiate Vundle
 " If running for the first time, make sure to run :PluginInstall
 let &runtimepath.=',$HOME/.vim/bundle/Vundle.vim'
@@ -245,17 +238,22 @@ Plugin 'Shutnik/jshint2.vim'
 ""Plugin 'mattn/emmet-vim'             
 Plugin 'groenewege/vim-less'        
 Plugin 'skammer/vim-css-color'      
-Plugin 'hail2u/vim-css3-syntax'       
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'Solarized'  
 
 " end plugin definition
 call vundle#end()            " required for vundle
+
+syntax enable
+set background=dark
+colorscheme solarized
 
 " start NERDTree on start-up and focus active window
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 
 " If NERDTree is the last buffer, close
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 "Align NERDTree to the right of the viewport
 let g:NERDTreeWinPos = "right"
